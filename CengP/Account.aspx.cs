@@ -9,7 +9,7 @@ public partial class Account : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        HttpCookie cookie = Request.Cookies["cookieeeeee"];
+        HttpCookie cookie = Request.Cookies["cookie"];
         if (cookie != null)
         {
             string mid = cookie["mid"];
