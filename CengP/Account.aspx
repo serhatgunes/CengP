@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="content">
-                        <h1>Hesabım Deneme Değişiklik</h1>
+                        <h1>Hesabım Deneme Değişiklik ilk deneme bickbutket hayırlı olsun</h1>
                     </div>
                 </div>
             </div>
