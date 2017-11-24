@@ -72,7 +72,7 @@
 
                         <asp:FileUpload ID="FileUpload1" runat="server" />
                         <div class="button-outer">
-                            <asp:LinkButton ID="LinkButton3" CssClass="btn"  runat="server">Yükle <span class="icon-more-icon"></span></asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton3" CssClass="btn" OnClick="PhotoUpload_Click"  runat="server">Yükle <span class="icon-more-icon"></span></asp:LinkButton>
                         </div>
                     </div>
                 </div>
