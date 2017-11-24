@@ -67,8 +67,11 @@
                 <div class="right-block clearfix">
                     <ul class="top-nav hidden-xs">
                         <li><a href="Account.aspx">Hesabım</a></li>
-                        <li><a href="Sorular.aspx"><asp:Label ID="Label1" runat="server" Text="Gelen Kutusu"></asp:Label> </a></li>
-                        <li><a href="Cevaplar.aspx"><asp:Label ID="Label2" runat="server" Text="Gelen Kutusu"></asp:Label></a></li>
+                        <li><a href="Sorular.aspx">
+                            <asp:Label ID="Label1" runat="server" Text="Gelen Kutusu"></asp:Label>
+                        </a></li>
+                        <li><a href="Cevaplar.aspx">
+                            <asp:Label ID="Label2" runat="server" Text="Gelen Kutusu"></asp:Label></a></li>
                         <li><a href="#">
                             <asp:Label ID="lblUsername" runat="server" Text=""></asp:Label>
                         </a></li>
@@ -120,8 +123,13 @@
                         <li><a href="Yazarlar.aspx">Yazarlar</a></li>
                         <li><a href="Puanlar.aspx">Puanlar</a></li>
                         <li><a href="Duyurular.aspx">Duyuru</a></li>
-                        <li><a href="Sinavlarim.aspx">sınavlarım</a></li>
-                        <li><a href="#">ProfİLİM</a></li>
+
+                        <li class="dropdown"><a data-toggle="dropdown" href="#">Kullanıcı <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="Sinavlarim.aspx">sınavlarım</a></li>
+                                <li><a href="Profilim.aspx">ProfİLİM</a></li>
+                            </ul>
+                        </li>
 
                     </ul>
                 </div>
