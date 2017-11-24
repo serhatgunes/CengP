@@ -8,6 +8,12 @@ using System.Web.Configuration;
 public partial class Profilim : System.Web.UI.Page
 {
     string strConnString = WebConfigurationManager.ConnectionStrings["CengP"].ConnectionString;
+    int countSoru = 0;
+    int countSinav = 0;
+    int countMukemmel = 0;
+    int countOrta = 0;
+    int countZayif = 0;
+    int countSorulanSoru = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         HttpCookie cookie = Request.Cookies["cookie"];
@@ -21,6 +27,20 @@ public partial class Profilim : System.Web.UI.Page
         }
         lblBilgi.Visible = false;
         Foto();
+        OgrenciSoru();
+        OgrenciSınav();
+        MukemelSinav();
+        OrtaSınav();
+        ZayıfSinav();
+        SorulanSoru();
+        TotalPuan();
+
+        lblSoru.Text = countSoru.ToString();
+        lblSinav.Text = countSinav.ToString();
+        lblukemel.Text = countMukemmel.ToString();
+        lblOrta.Text = countOrta.ToString();
+        lblZayıf.Text = countZayif.ToString();
+        lblSordugumSoru.Text = countSorulanSoru.ToString();
     }
     protected void Foto()
     {
@@ -90,5 +110,133 @@ public partial class Profilim : System.Web.UI.Page
             }
         }
         Foto();
+    }
+    public int OgrenciSoru()
+    {
+        HttpCookie cookie = Request.Cookies["cookie"];
+        string stmt = "SELECT COUNT(*) FROM oe_exams where mid='" + cookie["mid"] + "'";
+
+
+        using (SqlConnection thisConnection = new SqlConnection(strConnString))
+        {
+            using (SqlCommand cmdCount = new SqlCommand(stmt, thisConnection))
+            {
+                thisConnection.Open();
+                countSoru = (int)cmdCount.ExecuteScalar() * 10;
+            }
+        }
+        return countSoru;
+    }
+    public int OgrenciSınav()
+    {
+        HttpCookie cookie = Request.Cookies["cookie"];
+        string stmt = "SELECT COUNT(*) FROM oe_exams where mid='" + cookie["mid"] + "'";
+
+
+        using (SqlConnection thisConnection = new SqlConnection(strConnString))
+        {
+            using (SqlCommand cmdCount = new SqlCommand(stmt, thisConnection))
+            {
+                thisConnection.Open();
+                countSinav = (int)cmdCount.ExecuteScalar();
+            }
+        }
+        return countSinav;
+    }
+    public int MukemelSinav()
+    {
+        HttpCookie cookie = Request.Cookies["cookie"];
+        string stmt = "SELECT COUNT(*) FROM oe_exams where mid='" + cookie["mid"] + "' and durum=1";
+
+
+        using (SqlConnection thisConnection = new SqlConnection(strConnString))
+        {
+            using (SqlCommand cmdCount = new SqlCommand(stmt, thisConnection))
+            {
+                thisConnection.Open();
+                countMukemmel = (int)cmdCount.ExecuteScalar();
+            }
+        }
+        return countMukemmel;
+    }
+    public int OrtaSınav()
+    {
+        HttpCookie cookie = Request.Cookies["cookie"];
+        string stmt = "SELECT COUNT(*) FROM oe_exams where mid='" + cookie["mid"] + "' and durum=2";
+
+
+        using (SqlConnection thisConnection = new SqlConnection(strConnString))
+        {
+            using (SqlCommand cmdCount = new SqlCommand(stmt, thisConnection))
+            {
+                thisConnection.Open();
+                countOrta = (int)cmdCount.ExecuteScalar();
+            }
+        }
+        return countOrta;
+    }
+    public int ZayıfSinav()
+    {
+        HttpCookie cookie = Request.Cookies["cookie"];
+        string stmt = "SELECT COUNT(*) FROM oe_exams where mid='" + cookie["mid"] + "' and durum=0";
+
+
+        using (SqlConnection thisConnection = new SqlConnection(strConnString))
+        {
+            using (SqlCommand cmdCount = new SqlCommand(stmt, thisConnection))
+            {
+                thisConnection.Open();
+                countZayif = (int)cmdCount.ExecuteScalar();
+            }
+        }
+        return countZayif;
+    }
+    public int SorulanSoru()
+    {
+        HttpCookie cookie = Request.Cookies["cookie"];
+        string stmt = "SELECT COUNT(*) FROM mesajlar where m_id='" + cookie["mid"] + "'";
+
+
+        using (SqlConnection thisConnection = new SqlConnection(strConnString))
+        {
+            using (SqlCommand cmdCount = new SqlCommand(stmt, thisConnection))
+            {
+                thisConnection.Open();
+                countSorulanSoru = (int)cmdCount.ExecuteScalar();
+            }
+        }
+        return countSorulanSoru;
+    }
+    private void TotalPuan()
+    {
+        HttpCookie cookie = Request.Cookies["cookie"];
+        string selectSQL = "SELECT mid,totalpoint FROM members WHERE mid='" + cookie["mid"] + "'";
+
+        SqlConnection con = new SqlConnection(strConnString);
+        SqlCommand cmd = new SqlCommand(selectSQL, con);
+        SqlDataReader reader;
+
+        try
+        {
+            con.Open();
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                ToplamPuan.Text = "";
+                ToplamPuan.Text = reader["totalpoint"].ToString();
+
+            }
+            reader.Close();
+
+        }
+        catch (Exception err)
+        {
+            ToplamPuan.Text = "Hata";
+            ToplamPuan.Text += err.Message;
+        }
+        finally
+        {
+            con.Close();
+        }
     }
 }
