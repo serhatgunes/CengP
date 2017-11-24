@@ -120,7 +120,7 @@
                         <li><a href="Yazarlar.aspx">Yazarlar</a></li>
                         <li><a href="Puanlar.aspx">Puanlar</a></li>
                         <li><a href="Duyurular.aspx">Duyuru</a></li>
-                        <li><a href="#">sınavlarım</a></li>
+                        <li><a href="Sinavlarim.aspx">sınavlarım</a></li>
                         <li><a href="#">ProfİLİM</a></li>
 
                     </ul>
