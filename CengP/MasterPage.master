@@ -107,8 +107,6 @@
                                     <li><a href="Account/Login.aspx">.NET</a></li>
                                     <li><a href="Account/Login.aspx">Android Studio</a></li>
                                     <li><a href="Account/Login.aspx">IOS</a></li>
-                                    <li><a href="Account/Login.aspx">Microsoft SQL Server</a></li>
-                                    <li><a href="Account/Login.aspx">Bilgisayar Mühendisliği</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a data-toggle="dropdown" href="#">Onlİne Testler <i class="fa fa-angle-down" aria-hidden="true"></i></a>
@@ -117,12 +115,10 @@
                                     <li><a href="Account/Login.aspx">.NET</a></li>
                                     <li><a href="Account/Login.aspx">Android Studio</a></li>
                                     <li><a href="Account/Login.aspx">IOS</a></li>
-                                    <li><a href="Account/Login.aspx">Microsoft SQL Server</a></li>
-                                    <li><a href="Account/Login.aspx">Bilgisayar Mühendisliği</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Yazarlar</a></li>
-                            <li><a href="#">İletİşİm</a></li>
+                            <li><a href="YazarListele.aspx">Yazarlar</a></li>
+                            <li><a href="Iletisim.aspx">İletİşİm</a></li>
                         </ul>
                     </div>
                 </div>
