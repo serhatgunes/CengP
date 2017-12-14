@@ -126,8 +126,8 @@
 
                         <li class="dropdown"><a data-toggle="dropdown" href="#">Kullanıcı <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="Sinavlarim.aspx">sınavlarım</a></li>
-                                <li><a href="Profilim.aspx">ProfİLİM</a></li>
+                                <li><a href="Sinavlarim.aspx">SINAVLARIM</a></li>
+                                <li><a href="Profilim.aspx">PROFİLİM</a></li>
                             </ul>
                         </li>
 
