@@ -40,7 +40,7 @@ public partial class Yazarlar : System.Web.UI.Page
     protected void Yazar()
     {
         DataTable dt = new DataTable();
-        string strQuery = "select * from members WHERE totalpoint>=2500 ORDER BY totalpoint DESC";
+        string strQuery = "select * from members WHERE totalpoint>=2500 and onay=1 ORDER BY totalpoint DESC";
         SqlCommand cmd = new SqlCommand(strQuery);
         SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["CengP"].ConnectionString);
         SqlDataAdapter sda = new SqlDataAdapter();
