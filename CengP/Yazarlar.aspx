@@ -118,8 +118,12 @@
                             <li><a href="Yazarlar.aspx">Yazarlar</a></li>
                             <li><a href="Puanlar.aspx">Puanlar</a></li>
                             <li><a href="Duyurular.aspx">Duyuru</a></li>
-                            <li><a href="#">sınavlarım</a></li>
-                            <li><a href="#">ProfİLİM</a></li>
+                            <li class="dropdown"><a data-toggle="dropdown" href="#">Kullanıcı <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="Sinavlarim.aspx">SINAVLARIM</a></li>
+                                    <li><a href="Profilim.aspx">PROFİLİM</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
