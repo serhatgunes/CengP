@@ -45,7 +45,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <asp:LinkButton ID="LinkButton4" runat="server" CssClass="btn" OnClick="SendMessage_Click">
+                        <asp:LinkButton ID="LinkButton4" runat="server" CssClass="btn">
                                       <span class="icon-more-icon"></span> Mesaj Gönder                                  
                         </asp:LinkButton>
                         <br />
