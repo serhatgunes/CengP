@@ -110,4 +110,70 @@ public partial class Admin_YazarOnay : System.Web.UI.Page
     {
         // this is important
     }
+    protected void TextBox1_TextChanged(object sender, EventArgs e)
+    {
+        this.fillDataGrid();
+        lblname.Text = "";
+    }
+    protected void lnkBtn_Click(object sender, EventArgs e)
+    {
+        this.fillDataGrid();
+        lblname.Text = "";
+    }
+    protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            e.Row.Cells[3].Text = Regex.Replace(e.Row.Cells[3].Text, txtSearch.Text.Trim(), delegate (Match match)
+            {
+                return string.Format(match.Value);
+            }, RegexOptions.IgnoreCase);
+        }
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            string item = e.Row.Cells[2].Text;
+            foreach (Button button in e.Row.Cells[0].Controls.OfType<Button>())
+            {
+                if (button.CommandName == "Delete")
+                {
+                    button.Attributes["onclick"] = "if(!confirm('" + item + " numaralı yazar silinsin mi?')){ return false; };";
+                }
+            }
+        }
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            string item = e.Row.Cells[2].Text;
+            foreach (Button button in e.Row.Cells[1].Controls.OfType<Button>())
+            {
+                if (button.CommandName == "Update")
+                {
+                    button.Attributes["onclick"] = "if(!confirm('" + item + " numaralı yazar onaylansın mı?')){ return false; };";
+                }
+            }
+        }
+        if (e.Row.RowType == DataControlRowType.Header)
+        {
+
+            e.Row.Cells[2].ForeColor = System.Drawing.Color.White;
+            e.Row.Cells[3].ForeColor = System.Drawing.Color.White;
+            e.Row.Cells[4].ForeColor = System.Drawing.Color.White;
+            e.Row.Cells[5].ForeColor = System.Drawing.Color.White;
+
+
+            e.Row.Cells[2].Text = "ID";
+            e.Row.Cells[3].Text = "Ad Soyad";
+            e.Row.Cells[4].Text = "E-Mail";
+            e.Row.Cells[5].Text = "Okul";
+            e.Row.Cells[6].Text = "Toplam Puan";
+
+            e.Row.Cells[0].Width = 40;
+            e.Row.Cells[1].Width = 40;
+            e.Row.Cells[2].Width = 40;
+            e.Row.Cells[3].Width = 120;
+            e.Row.Cells[4].Width = 200;
+            e.Row.Cells[5].Width = 100;
+            e.Row.Cells[6].Width = 100;
+
+        }
+    }
 }
