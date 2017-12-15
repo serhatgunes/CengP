@@ -2,9 +2,10 @@
 
 <%@ Import Namespace="System.Data.SqlClient" %>
 <%@ Import Namespace="System.Data" %>
+<%@ Import Namespace="System.Web.Configuration" %>
 
 <script runat="server">
-    private string connectionString = "Data Source = SERHAT\\SERHAT; Initial Catalog = CengP; Integrated Security = True";
+    private string connectionString = WebConfigurationManager.ConnectionStrings["CengP"].ConnectionString;
 
     private void FillSession_mid()
     {

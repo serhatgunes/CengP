@@ -318,7 +318,7 @@ public partial class İçerikEkle : System.Web.UI.Page
     {
         HttpCookie cookie = Request.Cookies["cookie"];
         string stmt = "SELECT totalpoint,mid FROM members where mid='" + cookie["mid"] + "'";
-        using (SqlConnection thisConnection = new SqlConnection("Data Source = SERHAT\\SERHAT; Initial Catalog = CengP; Integrated Security = True"))
+        using (SqlConnection thisConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["CengP"].ConnectionString))
         {
             using (SqlCommand cmdCount = new SqlCommand(stmt, thisConnection))
             {

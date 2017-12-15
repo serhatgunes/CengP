@@ -194,7 +194,6 @@ public partial class Yazar_SoruEkle : System.Web.UI.Page
             if (lblSubId.Text != "")
             {
                 con.Open();
-                //Öğretmenin Soru eklediği algoritma
                 SqlCommand cmd1 = new SqlCommand("insert into oe_questions (question,ans1,ans2,ans3,ans4,cans,sid,t_id) values (@question,@ans1,@ans2,@ans3,@ans4,@cans,@sid,@t_id)", con);
 
                 cmd1.Parameters.AddWithValue("@question", txtSoruEkle.Text);
@@ -236,7 +235,7 @@ public partial class Yazar_SoruEkle : System.Web.UI.Page
     {
         HttpCookie cookie = Request.Cookies["cookie"];
         string stmt = "SELECT totalpoint,mid FROM members where mid='" + cookie["mid"] + "'";
-        using (SqlConnection thisConnection = new SqlConnection("Data Source = SERHAT\\SERHAT; Initial Catalog = CengP; Integrated Security = True"))
+        using (SqlConnection thisConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["CengP"].ConnectionString))
         {
             using (SqlCommand cmdCount = new SqlCommand(stmt, thisConnection))
             {

@@ -4,7 +4,7 @@
 <%@ Import Namespace="System.Data" %>
 <%@ Import Namespace="System.Web.Configuration" %>
 <script runat="server">
-    private string connectionString = "Data Source = SERHAT\\SERHAT; Initial Catalog = CengP; Integrated Security = True";
+    private string connectionString = WebConfigurationManager.ConnectionStrings["CengP"].ConnectionString;
     SqlConnection con1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["CengP"].ConnectionString);
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -132,7 +132,7 @@
         else
             durum = 0;
         // add row to OE_EXAMS table
-        SqlConnection con = new SqlConnection("Data Source = SERHAT\\SERHAT; Initial Catalog = CengP; Integrated Security = True");
+        SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["CengP"].ConnectionString);
         con.Open();
         SqlCommand cmd = new SqlCommand("select isnull( max(examid),0) + 1 from oe_exams", con);
         int examid = (Int32)cmd.ExecuteScalar();

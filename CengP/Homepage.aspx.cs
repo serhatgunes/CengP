@@ -52,7 +52,7 @@ public partial class Homepage : System.Web.UI.Page
     public int TotalComment()
     {
         string stmt = "SELECT COUNT(*) from lectureContent L, comment C  where C.alan=L.content_id";
-        using (SqlConnection thisConnection = new SqlConnection("Data Source = SERHAT\\SERHAT; Initial Catalog = CengP; Integrated Security = True"))
+        using (SqlConnection thisConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["CengP"].ConnectionString))
         {
             using (SqlCommand cmdCount = new SqlCommand(stmt, thisConnection))
             {
