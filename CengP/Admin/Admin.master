@@ -105,7 +105,7 @@
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
                                         <li>
-                                            <a href="OgretmenOnay.aspx">
+                                            <a href="YazarOnay.aspx">
                                                 <i class="fa fa-users text-aqua"></i>
                                                 <asp:Label ID="lblOgrOnay" runat="server" Text="Label" Font-Bold="True"></asp:Label>
                                             </a>
@@ -140,13 +140,13 @@
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
                                         <li>
-                                            <a href="OgretmenOnay.aspx">
+                                            <a href="YazarOnay.aspx">
                                                 <i class="fa fa-user text-red"></i>
                                                 <asp:Label ID="lblOnaysizUyeYazar" runat="server" ForeColor="Black"></asp:Label>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="OnaysizOgrenciler.aspx">
+                                            <a href="OnaysizKullanici.aspx">
                                                 <i class="fa fa-user text-red"></i>
                                                 <asp:Label ID="lblOnaysizUyeKullanici" runat="server" ForeColor="Black"></asp:Label>
                                             </a>
