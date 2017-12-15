@@ -52,9 +52,9 @@
                             <br />
                             <div class="col-md-3">
                                 <div class="input-group">
-                                    <asp:TextBox ID="txtSearch" AutoCompleteType="Disabled" runat="server" placeholder="ID veya Ad Soyad girin" CssClass="form-control" AutoPostBack="True" ></asp:TextBox><br />
+                                    <asp:TextBox ID="txtSearch" AutoCompleteType="Disabled" runat="server" placeholder="ID veya Ad Soyad girin" CssClass="form-control" AutoPostBack="True" OnTextChanged="TextBox1_TextChanged" ></asp:TextBox><br />
                                     <span class="input-group-btn">
-                                        <asp:LinkButton ID="LinkButton1"  CssClass="btn btn-flat" runat="server">
+                                        <asp:LinkButton ID="LinkButton1"  OnClick="lnkBtn_Click"  CssClass="btn btn-flat" runat="server">
                                                 <i class="fa fa-search"></i>
                                         </asp:LinkButton>
                                     </span>
