@@ -51,4 +51,63 @@ public partial class Admin_YazarOnay : System.Web.UI.Page
         }
         sqlcon.Close();
     }
+    protected void datagridview_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        datagridview.PageIndex = e.NewPageIndex;
+        fillDataGrid();
+    }
+    protected void datagridview_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        //Admin sayfası onaysız yazarı sildiğim sorgu
+        if (e.CommandName == "Delete")
+        {
+            int rowno = int.Parse(e.CommandArgument.ToString());
+            try
+            {
+                string ProductID = datagridview.Rows[rowno].Cells[2].Text.ToString();
+                SqlConnection con = new SqlConnection(myconnectionString);
+                SqlCommand cmd = new SqlCommand("Delete  from members where mid='" + ProductID + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                lblname.Text = ProductID + " Numaralı Yazar Silinmiştir.";
+                fillDataGrid();
+
+            }
+            catch (Exception ex)
+            {
+                lblname.Text = ex.Message.ToString();
+                fillDataGrid();
+            }
+        }
+        //Admin sayfası onaysız yazarı onayladığım sorgu
+        else if (e.CommandName == "Update")
+        {
+            int rownoupdate = Int32.Parse(e.CommandArgument.ToString());
+            try
+            {
+                string UpdateNo = datagridview.Rows[rownoupdate].Cells[2].Text.ToString();
+                SqlConnection con = new SqlConnection(myconnectionString);
+                SqlCommand cmd = new SqlCommand("Update members SET onay=1 where mid='" + UpdateNo + "'", con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+                lblname.Text = UpdateNo + " Numaralı Yazar Onaylanmıştır.";
+                fillDataGrid();
+            }
+            catch (Exception ex)
+            {
+                lblname.Text = ex.Message.ToString();
+                fillDataGrid();
+            }
+        }
+    }
+    protected void datagridview_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        // this is important
+    }
+    protected void datagridview_RowUpdate(object sender, GridViewUpdateEventArgs e)
+    {
+        // this is important
+    }
 }
