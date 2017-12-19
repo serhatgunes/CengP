@@ -163,7 +163,7 @@
 
         FillTotalPointNext();
 
-        SqlConnection con1 = new SqlConnection("Data Source=SERHAT\\SERHAT;Initial Catalog=CengP;Integrated Security=True");
+        SqlConnection con1 = new SqlConnection(WebConfigurationManager.ConnectionStrings["CengP"].ConnectionString);
         con1.Open();
         SqlCommand cmd1 = new SqlCommand("Update members Set totalpoint='" + lblToplaPuan.Text + "' Where mid=@mid", con1);
         cmd1.Parameters.AddWithValue("mid", exam.mid);
